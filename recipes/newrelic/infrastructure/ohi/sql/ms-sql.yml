@@ -173,16 +173,15 @@ install:
           msiexec.exe /qn /i "$env:TEMP\nri-mssql-amd64.msi" | Out-Null;
           $OhiConfig = "C:\\Program Files\\New Relic\\newrelic-infra\\integrations.d\\mssql-config.yml"; if (Test-Path $OhiConfig) { Remove-Item $OhiConfig };
           Add-Content -Path "C:\\Program Files\\New Relic\\newrelic-infra\\integrations.d\\mssql-config.yml" -Value @"
-          integration_name`:` com.newrelic.mssql
-
-          instances`:`
-            - name`:` mssql-server
-              command`:` all_data
-              arguments`:`
+          integrations:
+            - name`:` nri-mssql
+              env`:`
                 hostname`:` $($NR_CLI_DB_HOSTNAME)
                 username`:` $($NR_CLI_DB_USERNAME)
                 password`:` $($NR_CLI_DB_PASSWORD)
                 port`:` $($NR_CLI_DB_PORT)
+              inventory_source`:` config/mssql
+              interval`:` 15
           "@ -Force | Out-Null;
 
           Restart-Service newrelic-infra
