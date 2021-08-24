@@ -176,10 +176,10 @@ install:
           integrations:
             - name`:` nri-mssql
               env`:`
-                hostname`:` $($NR_CLI_DB_HOSTNAME)
-                username`:` $($NR_CLI_DB_USERNAME)
-                password`:` $($NR_CLI_DB_PASSWORD)
-                port`:` $($NR_CLI_DB_PORT)
+                HOSTNAME`:` $($NR_CLI_DB_HOSTNAME)
+                USERNAME`:` $($NR_CLI_DB_USERNAME)
+                PASSWORD`:` $($NR_CLI_DB_PASSWORD)
+                PORT`:` $($NR_CLI_DB_PORT)
               inventory_source`:` config/mssql
               interval`:` 15
           "@ -Force | Out-Null;
