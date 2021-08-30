@@ -20,7 +20,7 @@
         {
             "id": "wordpress",
             "display_name": "Debian PHP nginx FPM Wordpress",
-            "source_repository": "https://github.com/newrelic/open-install-library.git",
+            "source_repository": "-b debian10_wordpress_deploy https://github.com/mfulb/open-install-library.git",
             "deploy_script_path": "test/deploy/linux/php/nginx-fpm-wordpress/debian10/roles",
             "port": 80,
             "destinations": [
